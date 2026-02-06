@@ -34,7 +34,7 @@ def generate_members_data(members, visits) -> dict[int, dict[str, str | list[str
     return members_data
 
 
-
+# check for a valid barcode in the members table
 def check_barcode(barcode: str, members: dict[str, str]) -> bool:
     return barcode in members.values()
 

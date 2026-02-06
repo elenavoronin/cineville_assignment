@@ -1,8 +1,6 @@
 import csv
-from itertools import count
-from typing import List
 
-
+# export data to a csv file
 def export_to_csv(result):
     with open("./data/result.csv", "w", newline="") as file:
         file_writer = csv.writer(file)
@@ -15,26 +13,25 @@ def export_to_csv(result):
                 data["visits"]
               ])
 
-def calculate_top_members(members_data) -> List[int]:
+# prints top 5 members by visits
+def calculate_top_members(members_data):
     top_members = []
-    for member in members_data:
-        member["visit_count"] = len(member["visits"])
 
     members_data_sorted = sorted(members_data.items(),
-                                 key=lambda x: len(x["visits"]),
+                                 key=lambda x: len(x[1]["visits"]),
                                  reverse=True)
 
-    for member_id, data in members_data_sorted.items():
-        top_members[member_id] = data["visit_count"]
-
-    print(top_members)
-    return top_members
+    print("Top 5 members by number of visits:")
+    for member_id, member_info in members_data_sorted[:5]:
+        print(f"{member_id}, {len(member_info['visits'])}")
 
 
-# def calculate_walk_ins(members_data) -> int:
-#     return members_data.values()
-#
-#
-#
-# def print_bonus_result():
-#
+# prints total number of visits without a reservation
+def calculate_walk_ins(visits):
+     print("Total number of walk-ins:")
+     walk_ins = [visit for visit in visits if visit["reservation_id"] == ""]
+     print(len(walk_ins))
+
+
+
+
