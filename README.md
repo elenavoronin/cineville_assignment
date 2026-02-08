@@ -13,12 +13,12 @@ This project provides functionality for reading and processing member and visit 
 
 1. Clone the repository: cineville_assignment:
 
-   
-    git clone https://github.com/elenavoronin/cineville_assignment.git 
+        git clone https://github.com/elenavoronin/cineville_assignment.git
+ 
 
 2. Run project:
 
-    ```python cineville.py```
+        python cineville.py
 
 This will execute the following:
 - Read members and visits files
