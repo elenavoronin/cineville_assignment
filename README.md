@@ -14,7 +14,7 @@ This project provides functionality for reading and processing member and visit 
 1. Clone the repository: cineville_assignment:
 
    
-    ```git clone https://github.com/elenavoronin/cineville_assignment.git``` 
+    git clone https://github.com/elenavoronin/cineville_assignment.git 
 
 2. Run project:
 
@@ -32,11 +32,11 @@ This will execute the following:
 
 To run the test for the project:
         
-    ```pytest tests/test_validation.py```
+    pytest tests/test_validation.py
 
 ## AI usage
 
 The code for this project was written manually, howver AI was used in some particular cases:
 - To generate the markdown for this Readme file
 - To format data that was exported to a csv file
-- To identify potential cases for testing that were ommitted
+- To identify potential cases for testing
