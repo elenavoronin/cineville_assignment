@@ -1,5 +1,25 @@
 import csv
 
+# the clean members and visits tables are concatenated into one data source. the structure is a dictionary,
+# where the member_id is the key, and the value is another dictionary wich has 2 keys: barcodes and the visits list
+def generate_members_data(members, visits) -> dict[int, dict[str, str | list[str]]]:
+    members_data = {}
+    for member_id, barcode in members.items():
+        members_data[member_id] = {
+            "barcode": barcode,
+            "visits": []
+        }
+
+    for visit in visits:
+        visit_barcode = visit["barcode"]
+        visit_id = visit["visit_id"]
+        for member_id, data in members_data.items():
+            if data["barcode"] == visit_barcode:
+                data["visits"].append(visit_id)
+                break
+
+    return members_data
+
 # export data to a csv file
 def export_to_csv(result):
     with open("./data/result.csv", "w", newline="") as file:
@@ -10,7 +30,7 @@ def export_to_csv(result):
             file_writer.writerow([
                 member_id,
                 data["barcode"],
-                data["visits"]
+                ", ".join(data["visits"])
               ])
 
 # prints top 5 members by visits

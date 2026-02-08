@@ -6,7 +6,7 @@ from utils import export_to_csv, calculate_top_members, calculate_walk_ins, gene
 def main():
     members = read_members_file()
     visits = read_visits_file()
-    validated_visits, invalid_visits = validate_visits_data(visits, members)
+    validated_visits, invalid_data = validate_visits_data(visits, members)
     final_result = generate_members_data(members, validated_visits)
     export_to_csv(final_result)
     calculate_top_members(final_result)
